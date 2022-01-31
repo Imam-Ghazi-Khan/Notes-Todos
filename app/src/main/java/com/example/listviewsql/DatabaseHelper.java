@@ -40,4 +40,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query,null);
         return cursor;
     }
+    public void delete(String text) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(DB_TABLE, NAME+"=?", new String[] {String.valueOf(text)});
+    }
+
 }
